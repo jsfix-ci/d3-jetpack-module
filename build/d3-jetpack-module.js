@@ -1,8 +1,13 @@
 // https://github.com/1wheel/d3-jetpack-module Version 0.0.18. Copyright 2017 Adam Pearce.
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('d3-selection'), require('d3-transition'), require('d3-axis'), require('d3-scale'), require('d3-collection'), require('d3-queue'), require('d3-request')) :
-	typeof define === 'function' && define.amd ? define(['exports', 'd3-selection', 'd3-transition', 'd3-axis', 'd3-scale', 'd3-collection', 'd3-queue', 'd3-request'], factory) :
-	(factory((global.d3 = global.d3 || {}),global.d3,global.d3,global.d3,global.d3,global.d3,global.d3,global.d3));
+ typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('d3-selection'), require('d3-transition'), require('d3-axis'), require('d3-scale'), require('d3-collection'), /* TODO: JSFIX could not patch the breaking change:
+ D3 5.0 deprecates and removes the d3-queue module 
+ Suggested fix: As an alternative to this module you can either use Promise.all to run multiple promises and process the result or another external module like `p-queue`.
+ Promise.all is rather simple to use and simply requires you to run it with an array of each promise currently parsed to a .defer() method, and then instead of queue.await you use the .then() method on the returned promise.
+ For an example and documentation see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all */
+ require('d3-queue'), require('d3-request')) :
+ typeof define === 'function' && define.amd ? define(['exports', 'd3-selection', 'd3-transition', 'd3-axis', 'd3-scale', 'd3-collection', 'd3-queue', 'd3-request'], factory) :
+ (factory((global.d3 = global.d3 || {}),global.d3,global.d3,global.d3,global.d3,global.d3,global.d3,global.d3));
 }(this, (function (exports,d3Selection,d3Transition,d3Axis,d3Scale,d3Collection,d3Queue,d3Request) { 'use strict';
 
 var translateSelection = function(xy) {
