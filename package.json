@@ -22,7 +22,7 @@
     "postpublish": "bin/rollup"
   },
   "devDependencies": {
-    "d3": "4",
+    "d3": "^5.16.0",
     "d3-selection-multi": "1",
     "eslint": "2",
     "jsdom": "9",
